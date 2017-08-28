@@ -16,6 +16,7 @@ module.exports = options => {
               loader: 'babel-loader',
               options: {
                 presets: ['es2015', 'react'],
+                plugins: ["transform-decorators-legacy", "transform-object-rest-spread"],
               },
             },
           ],
