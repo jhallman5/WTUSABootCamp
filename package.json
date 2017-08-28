@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --hot",
+    "dev": "webpack-dev-server --hot --history-api-fallback",
     "lint": "./node_modules/.bin/eslint *.js"
   },
   "repository": {
@@ -26,6 +26,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "style-loader": "^0.18.2",
     "webpack": "^3.5.5",

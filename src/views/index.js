@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter, Route} from 'react-router-dom'
+import Home from './components/home'
 
 class App extends React.Component {
   render () {
-    return <p> Hello React!</p>;
+    return (
+      <BrowserRouter >
+        <Route path={'/home'} component={Home} />
+      </BrowserRouter>
+    )
   }
 }
 
