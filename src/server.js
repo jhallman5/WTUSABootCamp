@@ -7,7 +7,6 @@ const PORT = process.env.PORT || 3000;
 // bodyparser
 // session
 // passport
-// router
 
 server.use(router);
 
