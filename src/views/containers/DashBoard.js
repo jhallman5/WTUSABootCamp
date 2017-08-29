@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import Home from '../components/home.js'
 import { User } from '../actions'
 import store from '../store'
+import { UserInfo } from '../components/user-info'
+import { UserHeader } from '../components/user-header'
 
 @connect((store) => {
   return {
@@ -17,12 +19,10 @@ export default class DashBoardContainer extends React.Component {
     this.props.dispatch(User.fetch())
   }
 
-  componentWillMount(){
+  //mock test
+  fetchAll() {
     this.props.dispatch(User.fetchAll())
   }
-
-  fetchOpenUsers() {}
-
 
   //mock test
   fetchJoinedUsers(){
@@ -53,22 +53,21 @@ export default class DashBoardContainer extends React.Component {
             <li className="is-active"><a onClick={this.fetchUser.bind(this)}>Open</a></li>
             <li><a onClick={this.fetchJoinedUsers.bind(this)}>Joined</a></li>
             <li><a onClick={this.fetchRejectedUsers.bind(this)}>Rejected</a></li>
+            <li><a onClick={this.fetchAll.bind(this)}>Show All</a></li>
           </ul>
         </div>
-        {console.log( "=-=-=-> this.props", this.props.user )}
         Current User: {this.props.user.username}
-        <div className="columns">
-        <div className="column">
-        <br />
-        Component Did Mount Info
-        <ul>{this.props.users ? this.props.users.map(function (person) {
-            return <li key={person.id}>{person.username}</li>
-          })
-          : 'Loading'
-        }
-        </ul>
-        </div>
-        </div>
+
+          <br />
+          ---------------------------------------------------------------
+            <div >
+              <UserHeader />
+              {this.props.users
+                ? this.props.users.map(person =>
+                  <UserInfo client={person} key={person.id}/> )
+                : 'Loading...'
+              }
+            </div>
       </div>
     )
   }
