@@ -27,10 +27,12 @@ export default class DashBoardContainer extends React.Component {
       <div>
         dash
         <button onClick={this.fetchUser.bind(this)}>Get User</button>
-        <ul>{this.props.users.map(function (person,i) {
-          console.log( "=-=-=-> person", person)
-            return <li key={i} >1</li>
-          })}
+        <ul>{this.props.users ? this.props.users.map(function (person) {
+          console.log( "=-=-=-> person", person.id)
+            return <li key={person.id}>{person.username}</li>
+          })
+          : 'Loading'
+        }
         </ul>
         <Home />
       </div>
