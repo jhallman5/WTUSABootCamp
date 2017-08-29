@@ -16,7 +16,7 @@ import { UserHeader } from '../components/user-header'
 })
 export default class DashBoardContainer extends React.Component {
   fetchUser() {
-    this.props.dispatch(User.fetch())
+    this.props.dispatch(User.fetchUser())
   }
 
   //mock test
@@ -32,6 +32,11 @@ export default class DashBoardContainer extends React.Component {
   //mock test
   fetchRejectedUsers(){
     this.props.dispatch(User.fetchLisa())
+  }
+
+  //mock test
+  fetchJohn(){
+    this.props.dispatch(User.fetchJohn())
   }
 
   render() {
@@ -53,6 +58,7 @@ export default class DashBoardContainer extends React.Component {
             <li className="is-active"><a onClick={this.fetchUser.bind(this)}>Open</a></li>
             <li><a onClick={this.fetchJoinedUsers.bind(this)}>Joined</a></li>
             <li><a onClick={this.fetchRejectedUsers.bind(this)}>Rejected</a></li>
+            <li><a onClick={this.fetchJohn.bind(this)}>john</a></li>
             <li><a onClick={this.fetchAll.bind(this)}>Show All</a></li>
           </ul>
         </div>
