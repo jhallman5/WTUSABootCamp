@@ -3,6 +3,7 @@ export default function reducer(state = {
     id: null,
     username: null,
   },
+  users: false,
   fetching: false,
   fetched: false,
   error: null,
@@ -13,6 +14,13 @@ export default function reducer(state = {
         ...state,
         fetching: true,
         user: action.payload,
+      };
+    }
+    case 'FETCH_ALL_USERS': {
+      return {
+        ...state,
+        fetching: true,
+        users: action.payload,
       };
     }
     default: {

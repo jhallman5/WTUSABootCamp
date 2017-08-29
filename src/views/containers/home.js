@@ -8,7 +8,8 @@ import store from '../store'
 
 @connect((store) => {
   return {
-    user: store.user.user
+    user: store.user.user,
+    users: store.user.user
   }
 })
 export default class HomeContainer extends React.Component {
@@ -19,7 +20,6 @@ export default class HomeContainer extends React.Component {
     return (
       <div>
         <button onClick={this.fetchUser.bind(this)}>Get User</button>
-        <div>{this.props.user.username}</div>
         <Home />
       </div>
     )
