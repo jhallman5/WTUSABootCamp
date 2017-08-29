@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom'
-import Home from './containers/home'
 import {Provider} from 'react-redux'
 
+import Home from './containers/Home'
+import DashBoard from './containers/DashBoard'
 import store from './store'
 
 class App extends React.Component {
   render () {
     return (
       <BrowserRouter >
-        <Route path={'/home'} component={Home} />
+        <div>
+          <Route path={'/home'} component={Home} />
+          <Route path={'/dashboard'} component={DashBoard} />
+        </div>
       </BrowserRouter>
     )
   }
