@@ -25,7 +25,6 @@ export function fetchAll() {
           id: 3,
           username: 'lisa3'
         }
-
     ],
   }
 }
