@@ -12,6 +12,7 @@ class App extends React.Component {
     return (
       <BrowserRouter >
         <div>
+          Project Level Up
           <Route path={'/home'} component={Home} />
           <Route path={'/dashboard'} component={DashBoard} />
         </div>

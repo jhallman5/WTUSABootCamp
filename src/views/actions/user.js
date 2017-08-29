@@ -29,3 +29,23 @@ export function fetchAll() {
     ],
   }
 }
+
+export function fetchSteven(){
+  return {
+        type: 'FETCH_USER',
+        payload: {
+          id: 2,
+          username: 'steven4'
+        }
+      }
+}
+
+export function fetchLisa(){
+  return {
+        type: 'FETCH_USER',
+        payload: {
+          id: 3,
+          username: 'lisa3'
+        }
+      }
+}

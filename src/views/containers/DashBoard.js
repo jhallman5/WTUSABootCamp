@@ -21,20 +21,54 @@ export default class DashBoardContainer extends React.Component {
     this.props.dispatch(User.fetchAll())
   }
 
+  fetchOpenUsers() {}
+
+
+  //mock test
+  fetchJoinedUsers(){
+    this.props.dispatch(User.fetchSteven())
+  }
+
+  //mock test
+  fetchRejectedUsers(){
+    this.props.dispatch(User.fetchLisa())
+  }
+
   render() {
-    console.log( "=-=-=-> this.props", this.props )
     return (
       <div>
-        dash
-        <button onClick={this.fetchUser.bind(this)}>Get User</button>
+        <div className="columns is-offset-1">
+          <div className="column">
+            Leads: 389
+          </div>
+          <div className="column">
+            Scheduled: 246
+          </div>
+          <div className="column">
+            Joined: 48
+          </div>
+        </div>
+        <div className="tabs is-offset-1">
+          <ul>
+            <li className="is-active"><a onClick={this.fetchUser.bind(this)}>Open</a></li>
+            <li><a onClick={this.fetchJoinedUsers.bind(this)}>Joined</a></li>
+            <li><a onClick={this.fetchRejectedUsers.bind(this)}>Rejected</a></li>
+          </ul>
+        </div>
+        {console.log( "=-=-=-> this.props", this.props.user )}
+        Current User: {this.props.user.username}
+        <div className="columns">
+        <div className="column">
+        <br />
+        Component Did Mount Info
         <ul>{this.props.users ? this.props.users.map(function (person) {
-          console.log( "=-=-=-> person", person.id)
             return <li key={person.id}>{person.username}</li>
           })
           : 'Loading'
         }
         </ul>
-        <Home />
+        </div>
+        </div>
       </div>
     )
   }
