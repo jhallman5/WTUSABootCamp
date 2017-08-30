@@ -62,7 +62,7 @@ export default class DashBoardContainer extends React.Component {
             <li><a onClick={this.fetchAll.bind(this)}>Show All</a></li>
           </ul>
         </div>
-        Current User: {this.props.user.username}
+        Current User: {this.props.user.username || this.props.user.name}
 
           <br />
           ---------------------------------------------------------------
@@ -70,7 +70,7 @@ export default class DashBoardContainer extends React.Component {
               <UserHeader />
               {this.props.users
                 ? this.props.users.map(person =>
-                  <UserInfo client={person} key={person.id}/> )
+                  <UserInfo customer={person} key={person.id}/> )
                 : 'Loading...'
               }
             </div>

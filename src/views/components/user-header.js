@@ -5,7 +5,7 @@ export const UserHeader = () => {
   return (
     <div className="columns">
       <div className="column">
-        id
+        Status
       </div>
       <div className="column">
         username

@@ -56,7 +56,8 @@ export function fetchJohn(){
         type: 'FETCH_USER',
         payload: new Promise((resolve, reject) => {
           fetch('http://localhost:3000/dashboard/john')
-            .then(response => resolve(response))
+          .then(response => response.json())
+            .then(json => resolve(json))
         })
       }
 }
