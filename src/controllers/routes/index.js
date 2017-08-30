@@ -11,4 +11,9 @@ router.get('/dashboard/john', (req, res) =>
     .then(customer => res.json(customer.attributes))
 );
 
+router.get('/dashboard/users/all', (req, res) =>
+  Customer.findAll()
+    .then(customers => res.json(customers))
+);
+
 module.exports = router;

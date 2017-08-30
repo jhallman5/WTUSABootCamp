@@ -5,10 +5,10 @@ export const UserInfo = (props) => {
   return (
     <div className="columns">
       <div className="column">
-        {props.customer.id}
+        {props.customer.status}
       </div>
       <div className="column">
-        {props.customer.username}
+        {props.customer.name}
       </div>
     </div>
   );
