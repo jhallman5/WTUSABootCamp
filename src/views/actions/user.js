@@ -1,5 +1,7 @@
  // will eventually fetch the user from the api
-export function fetch() {
+ import fetch from 'isomorphic-fetch';
+
+export function fetchUser() {
   return {
         type: 'FETCH_USER',
         payload: {
@@ -46,5 +48,15 @@ export function fetchLisa(){
           id: 3,
           username: 'lisa3'
         }
+      }
+}
+
+export function fetchJohn(){
+  return {
+        type: 'FETCH_USER',
+        payload: new Promise((resolve, reject) => {
+          fetch('http://localhost:3000/dashboard/john')
+            .then(response => resolve(response))
+        })
       }
 }
