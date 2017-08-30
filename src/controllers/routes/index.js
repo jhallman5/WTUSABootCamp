@@ -8,10 +8,7 @@ router.use((req, res, next) => {
 
 router.get('/dashboard/john', (req, res) =>
   Customer.findById(1)
-    .then((customer) => {
-      console.log('=-=-=-> customer IN ROUTE', customer.attributes);
-      res.json(customer.attributes);
-    })
+    .then(customer => res.json(customer.attributes))
 );
 
 module.exports = router;
