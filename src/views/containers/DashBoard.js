@@ -15,8 +15,16 @@ import { CustomerHeader } from '../components/customer-header'
   }
 })
 export default class DashBoardContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state =  {
+      tab: 'open'
+    }
+
+  }
   fetchUser() {
     this.props.dispatch(Customers.fetchCustomer())
+    this.setState({tab: 'open'})
   }
 
   //mock test
@@ -27,11 +35,13 @@ export default class DashBoardContainer extends React.Component {
   //mock test
   fetchJoinedUsers(){
     this.props.dispatch(Customers.fetchSteven())
+    this.setState({tab: 'joined'})
   }
 
   //mock test
   fetchRejectedUsers(){
     this.props.dispatch(Customers.fetchLisa())
+    this.setState({tab: 'rejected'})
   }
 
   //mock test
@@ -40,7 +50,6 @@ export default class DashBoardContainer extends React.Component {
   }
 
   render() {
-    {console.log('this.props', this.props)}
     return (
       <div>
         <div className="columns is-offset-1">
@@ -56,11 +65,16 @@ export default class DashBoardContainer extends React.Component {
         </div>
         <div className="tabs is-offset-1">
           <ul>
-            <li className="is-active"><a onClick={this.fetchUser.bind(this)}>Open</a></li>
-            <li><a onClick={this.fetchJoinedUsers.bind(this)}>Joined</a></li>
-            <li><a onClick={this.fetchRejectedUsers.bind(this)}>Rejected</a></li>
-            <li><a onClick={this.fetchJohn.bind(this)}>john</a></li>
-            <li><a onClick={this.fetchAll.bind(this)}>Show All</a></li>
+            <li className={this.state.tab === 'open' ? "is-active" : ""}>
+              <a onClick={this.fetchUser.bind(this)}>Open</a></li>
+            <li className={this.state.tab === 'joined' ? "is-active": ""}>
+              <a onClick={this.fetchJoinedUsers.bind(this)}>Joined</a></li>
+            <li className={this.state.tab === 'rejected' ? "is-active": ""}>
+              <a onClick={this.fetchRejectedUsers.bind(this)}>Rejected</a></li>
+            <li>
+              <a onClick={this.fetchJohn.bind(this)}>john</a></li>
+            <li>
+              <a onClick={this.fetchAll.bind(this)}>Show All</a></li>
           </ul>
         </div>
 
