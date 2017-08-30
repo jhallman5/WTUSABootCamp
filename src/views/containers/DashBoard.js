@@ -3,43 +3,44 @@ import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 
 import Home from '../components/home.js'
-import { User } from '../actions'
+import { Customers } from '../actions'
 import store from '../store'
-import { UserInfo } from '../components/user-info'
-import { UserHeader } from '../components/user-header'
+import { CustomerInfo } from '../components/customer-info'
+import { CustomerHeader } from '../components/customer-header'
 
 @connect((store) => {
   return {
-    user: store.user.user,
-    users: store.user.users,
+    customer: store.customers.customer,
+    customers: store.customers.customers,
   }
 })
 export default class DashBoardContainer extends React.Component {
   fetchUser() {
-    this.props.dispatch(User.fetchUser())
+    this.props.dispatch(Customers.fetchCustomer())
   }
 
   //mock test
   fetchAll() {
-    this.props.dispatch(User.fetchAll())
+    this.props.dispatch(Customers.fetchAll())
   }
 
   //mock test
   fetchJoinedUsers(){
-    this.props.dispatch(User.fetchSteven())
+    this.props.dispatch(Customers.fetchSteven())
   }
 
   //mock test
   fetchRejectedUsers(){
-    this.props.dispatch(User.fetchLisa())
+    this.props.dispatch(Customers.fetchLisa())
   }
 
   //mock test
   fetchJohn(){
-    this.props.dispatch(User.fetchJohn())
+    this.props.dispatch(Customers.fetchJohn())
   }
 
   render() {
+    {console.log('this.props', this.props)}
     return (
       <div>
         <div className="columns is-offset-1">
@@ -62,15 +63,16 @@ export default class DashBoardContainer extends React.Component {
             <li><a onClick={this.fetchAll.bind(this)}>Show All</a></li>
           </ul>
         </div>
-        Current User: {this.props.user.username || this.props.user.name}
+
+        Current User: {this.props.customer.username || this.props.customer.name}
 
           <br />
           ---------------------------------------------------------------
             <div >
-              <UserHeader />
-              {this.props.users
-                ? this.props.users.map(person =>
-                  <UserInfo customer={person} key={person.id}/> )
+              <CustomerHeader />
+              {this.props.customers
+                ? this.props.customers.map(person =>
+                  <CustomerInfo customer={person} key={person.id}/> )
                 : 'Loading...'
               }
             </div>

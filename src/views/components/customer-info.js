@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const UserInfo = (props) => {
+export const CustomerInfo = (props) => {
   return (
     <div className="columns">
       <div className="column">
@@ -14,6 +14,6 @@ export const UserInfo = (props) => {
   );
 }
 
-UserInfo.propTypes = {
-  user: PropTypes.object,
+CustomerInfo.propTypes = {
+  customer: PropTypes.object,
 }

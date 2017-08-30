@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const UserHeader = () => {
+export const CustomerHeader = () => {
   return (
     <div className="columns">
       <div className="column">
@@ -12,4 +12,4 @@ export const UserHeader = () => {
       </div>
     </div>
   );
-  }
+}
