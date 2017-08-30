@@ -55,16 +55,8 @@ export function fetchJohn(){
   return {
         type: 'FETCH_USER',
         payload: new Promise((resolve, reject) => {
-          setTimeout(() => {
           fetch('http://localhost:3000/dashboard/john')
-            .then(response => {
-              console.log( "=-=-=-> response", response )
-              resolve({
-                id: 1,
-                username: 'jhallman5'
-              })
-            })
-            },2000)
+            .then(response => resolve(response))
         })
       }
 }

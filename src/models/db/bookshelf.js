@@ -1,12 +1,15 @@
-const knex = require('knex')(require('./knexfile'))
-const bookshelf = require('bookshelf')
+const knex = require('knex')(require('./knexfile').development);
+const bookshelf = require('bookshelf')(knex);
 
 const User = bookshelf.Model.extend({
-  tableName: 'users'
-})
+  tableName: 'users',
+});
 
 const Customer = bookshelf.Model.extend({
-  tableName: 'customers'
-})
+  tableName: 'customers',
+});
 
-module.exports = bookshelf
+module.exports = {
+  User,
+  Customer,
+};
