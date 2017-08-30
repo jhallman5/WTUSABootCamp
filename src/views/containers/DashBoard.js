@@ -85,8 +85,11 @@ export default class DashBoardContainer extends React.Component {
             <div >
               <CustomerHeader />
               {this.props.customers
-                ? this.props.customers.map(person =>
-                  <CustomerInfo customer={person} key={person.id}/> )
+                ? this.props.customers.map(person => {
+                    if(person.status === this.state.tab) {
+                      return <CustomerInfo customer={person} key={person.id}/>
+                    }
+                  })
                 : 'Loading...'
               }
             </div>
