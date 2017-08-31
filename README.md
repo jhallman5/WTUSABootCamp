@@ -6,3 +6,7 @@ For development
 ```npm run create:db```
 1- To drop database
 ```npm run drop:db```
+
+
+TODO
+-Deal with css breakpoints

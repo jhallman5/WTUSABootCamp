@@ -35,13 +35,16 @@ export default class DashBoardContainer extends React.Component {
       <div>
         <div className="columns is-offset-1">
           <div className="column">
-            Leads: {this.props.customers.length}
+            Leads: {Object.values(this.props.customers).filter((customer) => customer.status === 'open').length}
           </div>
           <div className="column">
-            Scheduled(currrent joined): 246
+            Rejected: {Object.values(this.props.customers).filter((customer) => customer.status === 'rejected').length}
           </div>
           <div className="column">
-            Joined: 48
+            Joined: {Object.values(this.props.customers).filter((customer) => customer.status === 'joined').length}
+          </div>
+          <div className="column">
+            Total: {this.props.customers.length}
           </div>
         </div>
         <div className="tabs is-offset-1">
@@ -56,22 +59,17 @@ export default class DashBoardContainer extends React.Component {
               <a onClick={this.tabSelect.bind(this,'all')}>All</a></li>
           </ul>
         </div>
-
-        Current User: {this.props.customer.username || this.props.customer.name}
-
-          <br />
-          ---------------------------------------------------------------
-            <div >
-              <CustomerHeader />
-              {this.props.customers
-                ? this.props.customers.map(person => {
-                    if(this.state.tab === person.status || this.state.tab === 'all') {
-                      return <CustomerInfo customer={person} key={person.id}/>
-                    }
-                  })
-                : 'Loading...'
-              }
-            </div>
+        <div >
+          <CustomerHeader />
+          {this.props.customers
+            ? this.props.customers.map(person => {
+                if(this.state.tab === person.status || this.state.tab === 'all') {
+                  return <CustomerInfo customer={person} key={person.id}/>
+                }
+              })
+            : 'Loading...'
+          }
+        </div>
       </div>
     )
   }
