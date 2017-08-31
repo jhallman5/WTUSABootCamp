@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 export const CustomerHeader = () => {
   return (
@@ -8,8 +7,23 @@ export const CustomerHeader = () => {
         Status
       </div>
       <div className="column">
-        username
+        Name
+      </div>
+      <div className="column">
+        Concern
+      </div>
+      <div className="column">
+        Email
+      </div>
+      <div className="column">
+        Phone #
+      </div>
+      <div className="column">
+        Interview Date
+      </div>
+      <div className="column">
+        Created Date
       </div>
     </div>
   );
-}
+};

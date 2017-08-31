@@ -5,6 +5,10 @@ exports.up = function(knex, Promise) {
     table.string('name')
     table.string('email')
     table.string('status')
+    table.string('concern')
+    table.string('phone')
+    table.date('interview_date')
+    table.date('created_on').defaultTo(knex.fn.now())
   })
 };
 
