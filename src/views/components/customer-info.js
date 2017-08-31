@@ -4,9 +4,14 @@ import PropTypes from 'prop-types';
 export const CustomerInfo = (props) => {
   return (
     <div className="columns">
-      <div className="column">
-        {props.customer.status}
-      </div>
+      {(props.customer.status != 'open') ?
+            <div className="column">
+              {props.customer.status}
+            </div>
+            :  <div className="column">
+               {props.customer.status} 1
+             </div>
+      }
       <div className="column">
         {props.customer.name}
       </div>

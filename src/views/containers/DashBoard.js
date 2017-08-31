@@ -35,10 +35,10 @@ export default class DashBoardContainer extends React.Component {
       <div>
         <div className="columns is-offset-1">
           <div className="column">
-            Leads: 389
+            Leads: {this.props.customers.length}
           </div>
           <div className="column">
-            Scheduled: 246
+            Scheduled(currrent joined): 246
           </div>
           <div className="column">
             Joined: 48
