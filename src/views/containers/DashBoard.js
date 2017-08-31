@@ -52,7 +52,7 @@ export default class DashBoardContainer extends React.Component {
               <a onClick={this.tabSelect.bind(this,'joined')}>Joined</a></li>
             <li className={this.state.tab === 'rejected' ? "is-active": ""}>
               <a onClick={this.tabSelect.bind(this,'rejected')}>Rejected</a></li>
-            <li>
+            <li className={this.state.tab === 'all' ? "is-active": ""}>
               <a onClick={this.tabSelect.bind(this,'all')}>All</a></li>
           </ul>
         </div>
