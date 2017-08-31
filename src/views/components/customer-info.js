@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Status } from './status'
 
 export const CustomerInfo = (props) => {
   return (
@@ -9,7 +10,7 @@ export const CustomerInfo = (props) => {
               {props.customer.status}
             </div>
             :  <div className="column">
-               {props.customer.status} 1
+               <Status />
              </div>
       }
       <div className="column">
