@@ -3,40 +3,31 @@ import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 
 import Home from '../components/home.js'
-import { User } from '../actions'
+import { Customers } from '../actions'
 import store from '../store'
-import { UserInfo } from '../components/user-info'
-import { UserHeader } from '../components/user-header'
+import { CustomerInfo } from '../components/customer-info'
+import { CustomerHeader } from '../components/customer-header'
 
 @connect((store) => {
   return {
-    user: store.user.user,
-    users: store.user.users,
+    customer: store.customers.customer,
+    customers: store.customers.customers,
   }
 })
 export default class DashBoardContainer extends React.Component {
-  fetchUser() {
-    this.props.dispatch(User.fetchUser())
+  constructor(props) {
+    super(props);
+    this.state =  {
+      tab: 'open'
+    }
   }
 
-  //mock test
-  fetchAll() {
-    this.props.dispatch(User.fetchAll())
+  componentDidMount(){
+    this.props.dispatch(Customers.fetchAll())
   }
 
-  //mock test
-  fetchJoinedUsers(){
-    this.props.dispatch(User.fetchSteven())
-  }
-
-  //mock test
-  fetchRejectedUsers(){
-    this.props.dispatch(User.fetchLisa())
-  }
-
-  //mock test
-  fetchJohn(){
-    this.props.dispatch(User.fetchJohn())
+  tabSelect(tab) {
+    this.setState({ tab })
   }
 
   render() {
@@ -44,36 +35,41 @@ export default class DashBoardContainer extends React.Component {
       <div>
         <div className="columns is-offset-1">
           <div className="column">
-            Leads: 389
+            Leads: {Object.values(this.props.customers).filter((customer) => customer.status === 'open').length}
           </div>
           <div className="column">
-            Scheduled: 246
+            Rejected: {Object.values(this.props.customers).filter((customer) => customer.status === 'rejected').length}
           </div>
           <div className="column">
-            Joined: 48
+            Joined: {Object.values(this.props.customers).filter((customer) => customer.status === 'joined').length}
+          </div>
+          <div className="column">
+            Total: {this.props.customers.length}
           </div>
         </div>
         <div className="tabs is-offset-1">
           <ul>
-            <li className="is-active"><a onClick={this.fetchUser.bind(this)}>Open</a></li>
-            <li><a onClick={this.fetchJoinedUsers.bind(this)}>Joined</a></li>
-            <li><a onClick={this.fetchRejectedUsers.bind(this)}>Rejected</a></li>
-            <li><a onClick={this.fetchJohn.bind(this)}>john</a></li>
-            <li><a onClick={this.fetchAll.bind(this)}>Show All</a></li>
+            <li className={this.state.tab === 'open' ? "is-active" : ""}>
+              <a onClick={this.tabSelect.bind(this,'open')}>Open</a></li>
+            <li className={this.state.tab === 'joined' ? "is-active": ""}>
+              <a onClick={this.tabSelect.bind(this,'joined')}>Joined</a></li>
+            <li className={this.state.tab === 'rejected' ? "is-active": ""}>
+              <a onClick={this.tabSelect.bind(this,'rejected')}>Rejected</a></li>
+            <li className={this.state.tab === 'all' ? "is-active": ""}>
+              <a onClick={this.tabSelect.bind(this,'all')}>All</a></li>
           </ul>
         </div>
-        Current User: {this.props.user.username || this.props.user.name}
-
-          <br />
-          ---------------------------------------------------------------
-            <div >
-              <UserHeader />
-              {this.props.users
-                ? this.props.users.map(person =>
-                  <UserInfo customer={person} key={person.id}/> )
-                : 'Loading...'
-              }
-            </div>
+        <div >
+          <CustomerHeader />
+          {this.props.customers
+            ? this.props.customers.map(person => {
+                if(this.state.tab === person.status || this.state.tab === 'all') {
+                  return <CustomerInfo customer={person} key={person.id}/>
+                }
+              })
+            : 'Loading...'
+          }
+        </div>
       </div>
     )
   }

@@ -5,6 +5,12 @@ const findById = id =>
     .fetch()
     .then(customer => customer);
 
+const findAll = () =>
+  Customer.forge()
+    .fetchAll()
+    .then(customers => customers);
+
 module.exports = {
   findById,
+  findAll,
 };

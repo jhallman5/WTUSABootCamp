@@ -1,6 +1,6 @@
 // will eventually fetch the user from the api
-import * as User from './user'
+import * as Customers from './customers'
 
 module.exports= {
-  User
+  Customers
 }
