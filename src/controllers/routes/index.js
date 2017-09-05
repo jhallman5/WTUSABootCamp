@@ -1,10 +1,15 @@
 const router = require('express').Router()
 const Customer = require('../../models/customers');
+const path = require('path')
 
 router.use((req, res, next) => {
   res.set({ 'Access-Control-Allow-Origin': 'http://localhost:8080' });
   next();
 });
+
+router.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'))
+})
 
 router.get('/dashboard/john', (req, res) =>
   Customer.findById(1)
