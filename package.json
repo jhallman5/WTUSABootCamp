@@ -13,7 +13,8 @@
     "server:dev": "nodemon ./src/server.js",
     "create:db": "createdb WTUSABootCamp",
     "drop:db": "dropdb WTUSABootCamp",
-    "start": "webpack && node ./src/server.js"
+    "start": "node ./src/server.js",
+    "postinstall": "webpack -p"
   },
   "repository": {
     "type": "git",
