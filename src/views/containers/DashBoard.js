@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 
-import Home from '../components/home.js'
+import Home from '../components/home'
 import { Customers } from '../actions'
 import store from '../store'
 import { CustomerInfo } from '../components/customer-info'
