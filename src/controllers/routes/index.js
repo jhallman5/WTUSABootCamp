@@ -21,4 +21,8 @@ router.get('/dashboard/users/all', (req, res) =>
     .then(customers => res.json(customers))
 );
 
+router.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../../public/index.html'))
+})
+
 module.exports = router;
