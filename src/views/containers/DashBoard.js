@@ -8,7 +8,7 @@ import store from '../store'
 import { CustomerInfo } from '../components/customer-info'
 import { CustomerHeader } from '../components/customer-header'
 
-@connect((store) => {
+@connect((stoxre) => {
   return {
     customer: store.customers.customer,
     customers: store.customers.customers,

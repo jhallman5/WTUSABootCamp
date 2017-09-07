@@ -8,7 +8,7 @@ router.use((req, res, next) => {
 });
 
 router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../../index.html'))
+  res.sendFile(path.join(__dirname, '../../../public/index.html'))
 })
 
 router.get('/dashboard/john', (req, res) =>
@@ -20,5 +20,9 @@ router.get('/dashboard/users/all', (req, res) =>
   Customer.findAll()
     .then(customers => res.json(customers))
 );
+
+router.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../../public/index.html'))
+})
 
 module.exports = router;
