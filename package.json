@@ -8,15 +8,14 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -p",
+    "build": "webpack",
     "build:dev": "webpack-dev-server --hot --history-api-fallback",
     "lint": "./node_modules/.bin/eslint *.js",
     "server:dev": "nodemon ./src/server.js",
     "dev": "npm run build:dev && npm run server:dev",
     "create:db": "createdb WTUSABootCamp",
     "drop:db": "dropdb WTUSABootCamp",
-    "start": "webpack && node ./src/server.js",
-    "postinstall": "npm run build"
+    "start": "webpack && node ./src/server.js"
   },
   "repository": {
     "type": "git",
