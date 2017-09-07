@@ -15,8 +15,7 @@
     "dev": "npm run build:dev && npm run server:dev",
     "create:db": "createdb WTUSABootCamp",
     "drop:db": "dropdb WTUSABootCamp",
-    "start": "webpack && node ./src/server.js",
-    "postinstall": "npm run build"
+    "start": "webpack && node ./src/server.js"
   },
   "repository": {
     "type": "git",
