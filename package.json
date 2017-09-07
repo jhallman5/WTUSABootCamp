@@ -15,6 +15,8 @@
     "dev": "npm run build:dev && npm run server:dev",
     "create:db": "createdb WTUSABootCamp",
     "drop:db": "dropdb WTUSABootCamp",
+    "migrate:db": "--knexfile ./src/models/db/knexfile.js knex migrate:latest",
+    "seed:db": "--knexfile ./src/models/db/knexfile.js knex seed:run",
     "start": "webpack && node ./src/server.js"
   },
   "repository": {
