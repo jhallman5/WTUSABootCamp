@@ -7,6 +7,10 @@ module.exports = {
     client: 'pg',
     connection: connectionString
   },
+  production: {
+    client: 'pg',
+    connection: connectionString
+  },
   migrations: {
     directory: './migrations'
   },
