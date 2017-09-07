@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const CustomerHeader = () => {
+const CustomerHeader = () => {
   return (
     <div className="columns">
       <div className="column">
@@ -27,3 +27,5 @@ export const CustomerHeader = () => {
     </div>
   );
 };
+
+export default CustomerHeader;

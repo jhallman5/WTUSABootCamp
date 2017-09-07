@@ -1,6 +1,6 @@
 // will eventually fetch the user from the api
-import * as Customers from './customers'
+import * as Customers from './customers';
 
-module.exports= {
-  Customers
-}
+module.exports = {
+  Customers,
+};

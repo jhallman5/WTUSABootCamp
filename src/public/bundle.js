@@ -30112,9 +30112,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fetchCustomer = fetchCustomer;
 exports.fetchAll = fetchAll;
-exports.fetchSteven = fetchSteven;
-exports.fetchLisa = fetchLisa;
-exports.fetchJohn = fetchJohn;
 
 var _isomorphicFetch = __webpack_require__(273);
 
@@ -30134,41 +30131,8 @@ function fetchCustomer() {
 function fetchAll() {
   return {
     type: 'FETCH_ALL_CUSTOMERS',
-    payload: new Promise(function (resolve, reject) {
+    payload: new Promise(function (resolve) {
       (0, _isomorphicFetch2.default)('http://localhost:3000/dashboard/users/all').then(function (response) {
-        return response.json();
-      }).then(function (json) {
-        return resolve(json);
-      });
-    })
-  };
-}
-
-function fetchSteven() {
-  return {
-    type: 'FETCH_CUSTOMER',
-    payload: {
-      id: 2,
-      username: 'steven4'
-    }
-  };
-}
-
-function fetchLisa() {
-  return {
-    type: 'FETCH_CUSTOMER',
-    payload: {
-      id: 3,
-      username: 'lisa3'
-    }
-  };
-}
-
-function fetchJohn() {
-  return {
-    type: 'FETCH_CUSTOMER',
-    payload: new Promise(function (resolve, reject) {
-      (0, _isomorphicFetch2.default)('http://localhost:3000/dashboard/john').then(function (response) {
         return response.json();
       }).then(function (json) {
         return resolve(json);
@@ -31467,7 +31431,6 @@ function reducer() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.CustomerInfo = undefined;
 
 var _react = __webpack_require__(5);
 
@@ -31481,14 +31444,14 @@ var _status = __webpack_require__(282);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var CustomerInfo = exports.CustomerInfo = function CustomerInfo(props) {
+var CustomerInfo = function CustomerInfo(props) {
   return _react2.default.createElement(
     'div',
     null,
     _react2.default.createElement(
       'div',
       { className: 'columns is-centered' },
-      props.customer.status != 'open' ? _react2.default.createElement(
+      props.customer.status !== 'open' ? _react2.default.createElement(
         'div',
         { className: 'column' },
         props.customer.status
@@ -31539,6 +31502,8 @@ var CustomerInfo = exports.CustomerInfo = function CustomerInfo(props) {
 CustomerInfo.propTypes = {
   customer: _propTypes2.default.object
 };
+
+exports.default = CustomerInfo;
 
 /***/ }),
 /* 282 */
@@ -31603,7 +31568,6 @@ var Status = exports.Status = function Status() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.CustomerHeader = undefined;
 
 var _react = __webpack_require__(5);
 
@@ -31611,7 +31575,7 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var CustomerHeader = exports.CustomerHeader = function CustomerHeader() {
+var CustomerHeader = function CustomerHeader() {
   return _react2.default.createElement(
     "div",
     { className: "columns" },
@@ -31652,6 +31616,8 @@ var CustomerHeader = exports.CustomerHeader = function CustomerHeader() {
     )
   );
 };
+
+exports.default = CustomerHeader;
 
 /***/ })
 /******/ ]);
