@@ -8,7 +8,7 @@ router.use((req, res, next) => {
 });
 
 router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../../index.html'))
+  res.sendFile(path.join(__dirname, '../../../public/index.html'))
 })
 
 router.get('/dashboard/john', (req, res) =>

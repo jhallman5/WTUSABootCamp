@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 3000;
 // session
 // passport
 
+server.use(express.static(path.join(__dirname, 'public')))
 server.use(router);
 
 server.listen(PORT, () => {
