@@ -16,6 +16,7 @@
     "create:db": "createdb WTUSABootCamp",
     "drop:db": "dropdb WTUSABootCamp",
     "migrate:db": "knex --knexfile ./src/models/db/knexfile.js migrate:latest",
+    "rollback:db": "knex --knexfile ./src/models/db/knexfile.js migrate:rollback",
     "seed:db": "knex --knexfile ./src/models/db/knexfile.js seed:run",
     "start": "webpack && node ./src/server.js"
   },
