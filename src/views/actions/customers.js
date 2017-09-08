@@ -15,7 +15,7 @@ export function fetchAll() {
   return {
     type: 'FETCH_ALL_CUSTOMERS',
     payload: new Promise((resolve) => {
-      fetch('http://localhost:3000/dashboard/users/all')
+      fetch('/api/dashboard/users/all')
         .then(response => response.json())
         .then(json => resolve(json));
     }),
