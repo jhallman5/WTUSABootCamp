@@ -5,8 +5,8 @@ import { Customers } from '../actions';
 import store from '../store';
 import CustomerInfo from '../components/customer-info';
 import CustomerHeader from '../components/customer-header';
+
 const mapStateToProps = state => {
-  console.log( "=-=-=-> state.customers", state.customers.customers )
   return {customers: state.customers.customers}
 };
 
