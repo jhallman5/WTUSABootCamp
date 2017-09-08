@@ -1,32 +1,35 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
-import { connect } from 'react-redux'
+/* eslint-disable */
+import React, { Component } from 'react'; //eslint-disable-line
+import { connect } from 'react-redux';
+import { Customers } from '../actions';
+import store from '../store';
+import CustomerInfo from '../components/customer-info';
+import CustomerHeader from '../components/customer-header';
+const mapStateToProps = state => {
+  console.log( "=-=-=-> state.customers", state.customers.customers )
+  return {customers: state.customers.customers}
+};
 
-import Home from '../components/home'
-import { Customers } from '../actions'
-import store from '../store'
-import { CustomerInfo } from '../components/customer-info'
-import { CustomerHeader } from '../components/customer-header'
-
-@connect((store) => {
+const mapDispatchToProps = dispatch => {
   return {
-    customers: store.customers.customers,
+    fetchAll: () => dispatch(Customers.fetchAll())
   }
-})
-export default class DashBoardContainer extends React.Component {
+};
+
+class DashBoardContainer extends React.Component {
   constructor(props) {
-    super(props);
-    this.state =  {
-      tab: 'open'
-    }
+    super(props)
+    this.state = {
+      tab: 'open',
+    };
   }
 
-  componentDidMount(){
-    this.props.dispatch(Customers.fetchAll())
+  componentWillMount() {
+    this.props.fetchAll();
   }
 
   tabSelect(tab) {
-    this.setState({ tab })
+    this.setState({ tab });
   }
 
   render() {
@@ -34,13 +37,13 @@ export default class DashBoardContainer extends React.Component {
       <div>
         <div className="columns is-offset-1">
           <div className="column">
-            Leads: {Object.values(this.props.customers).filter((customer) => customer.status === 'open').length}
+            Leads: {Object.values(this.props.customers).filter(customer => customer.status === 'open').length}
           </div>
           <div className="column">
-            Rejected: {Object.values(this.props.customers).filter((customer) => customer.status === 'rejected').length}
+            Rejected: {Object.values(this.props.customers).filter(customer => customer.status === 'rejected').length}
           </div>
           <div className="column">
-            Joined: {Object.values(this.props.customers).filter((customer) => customer.status === 'joined').length}
+            Joined: {Object.values(this.props.customers).filter(customer => customer.status === 'joined').length}
           </div>
           <div className="column">
             Total: {this.props.customers.length}
@@ -58,9 +61,9 @@ export default class DashBoardContainer extends React.Component {
               <a onClick={this.tabSelect.bind(this,'all')}>All</a></li>
           </ul>
         </div>
-        <div >
+         <div >
           <CustomerHeader />
-          {this.props.customers
+          {this.props.customers.length
             ? this.props.customers.map(person => {
                 if(this.state.tab === person.status || this.state.tab === 'all') {
                   return <CustomerInfo customer={person} key={person.id}/>
@@ -70,6 +73,8 @@ export default class DashBoardContainer extends React.Component {
           }
         </div>
       </div>
-    )
+    );
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashBoardContainer)

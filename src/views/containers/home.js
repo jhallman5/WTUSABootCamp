@@ -1,20 +1,13 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
-import { connect } from 'react-redux'
+import React, { Component } from 'react'; // eslint-disable-line
 
-import Home from '../components/home'
-import { User } from '../actions'
+import Home from '../components/home';
 
-
-export default class HomeContainer extends React.Component {
-  fetchUser() {
-    this.props.dispatch(User.fetch())
-  }
+export default class HomeContainer extends React.Component { // eslint-disable-line
   render() {
     return (
       <div>
         <Home />
       </div>
-    )
+    );
   }
 }
