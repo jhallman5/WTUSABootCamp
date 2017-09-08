@@ -30118,7 +30118,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var mapStateToProps = function mapStateToProps(state) {
-  console.log("=-=-=-> state.customers", state.customers.customers);
   return { customers: state.customers.customers };
 };
 
