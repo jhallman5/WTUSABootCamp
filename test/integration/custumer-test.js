@@ -20,4 +20,23 @@ describe('Customer Integration', () => {
         });
     });
   });
+  context('findAll()', () => {
+    it('returns and array', (done) => {
+      Customer.findAll()
+        .then((response) => {
+          expect(response.models).to.be.an('array');
+          expect(response.models.length).to.equal(10);
+          done()
+        })
+    });
+    it('Array elements are customers', (done) => {
+      Customer.findAll()
+        .then((response) => {
+          expect(response.models[0].attributes.id).to.equal(1);
+          expect(response.models[1].attributes.email).to.equal('steven4@gmail.com');
+          expect(response.models[2].attributes.name).to.equal('lisa3');
+          done();
+        });
+    });
+  });
 });
