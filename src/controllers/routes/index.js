@@ -1,10 +1,6 @@
-const router = require('express').Router()
+const router = require('express').Router();
 const Customer = require('../../models/customers');
-const path = require('path')
-
-router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../public/index.html'))
-})
+const path = require('path');
 
 router.get('/api/dashboard/users/all', (req, res) =>
   Customer.findAll()
@@ -12,7 +8,7 @@ router.get('/api/dashboard/users/all', (req, res) =>
 );
 
 router.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../public/index.html'))
-})
+  res.sendFile(path.join(__dirname, '../../public/index.html'));
+});
 
 module.exports = router;
