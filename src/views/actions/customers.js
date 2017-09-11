@@ -1,4 +1,3 @@
-// will eventually fetch the user from the api
 import fetch from 'isomorphic-fetch';
 
 export function fetchCustomer() {
@@ -15,7 +14,7 @@ export function fetchAll() {
   return {
     type: 'FETCH_ALL_CUSTOMERS',
     payload: new Promise((resolve) => {
-      fetch('/api/dashboard/users/all')
+      fetch('/api/dashboard/customers/all')
         .then(response => response.json())
         .then(json => resolve(json));
     }),
