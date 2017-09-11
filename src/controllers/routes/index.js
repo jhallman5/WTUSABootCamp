@@ -2,7 +2,7 @@ const router = require('express').Router();
 const Customer = require('../../models/customers');
 const path = require('path');
 
-router.get('/api/dashboard/users/all', (req, res) =>
+router.get('/api/dashboard/customers/all', (req, res) =>
   Customer.findAll()
     .then(customers => res.json(customers))
 );

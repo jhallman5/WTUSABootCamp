@@ -30273,7 +30273,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 module.exports = {
   Customers: Customers
-}; // will eventually fetch the user from the api
+};
 
 /***/ }),
 /* 273 */
@@ -30302,12 +30302,13 @@ function fetchCustomer() {
       username: 'jhallman5'
     }
   };
-} // will eventually fetch the user from the api
+}
+
 function fetchAll() {
   return {
     type: 'FETCH_ALL_CUSTOMERS',
     payload: new Promise(function (resolve) {
-      (0, _isomorphicFetch2.default)('/api/dashboard/users/all').then(function (response) {
+      (0, _isomorphicFetch2.default)('/api/dashboard/customers/all').then(function (response) {
         return response.json();
       }).then(function (json) {
         return resolve(json);
