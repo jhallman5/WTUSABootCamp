@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react'; // eslint-disable-line
+
 import Home from '../components/home';
 
-const HomeContainer = () => (
-  <div>
-    <Home />
-  </div>
-);
-
-export default HomeContainer;
+export default class HomeContainer extends React.Component { // eslint-disable-line
+  render() {
+    return (
+      <div>
+        <Home />
+      </div>
+    );
+  }
+}
