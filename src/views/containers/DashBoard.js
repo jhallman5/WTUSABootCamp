@@ -53,13 +53,13 @@ class DashBoardContainer extends React.Component {
         <div className="tabs is-offset-1">
           <ul>
             <li className={this.state.tab === 'open' ? 'is-active' : ''}>
-              <a onClick={this.tabSelect.bind(this,'open')}>Open</a></li>
+              <a onClick={this.tabSelect.bind(this,'open')} role="presentation">Open</a></li>
             <li className={this.state.tab === 'joined' ? 'is-active' : ''}>
-              <a onClick={this.tabSelect.bind(this,'joined')}>Joined</a></li>
+              <a onClick={this.tabSelect.bind(this,'joined')} role="presentation">Joined</a></li>
             <li className={this.state.tab === 'rejected' ? 'is-active' : ''}>
               <a onClick={this.tabSelect.bind(this,'rejected')} role="presentation" >Rejected</a></li>
             <li className={this.state.tab === 'all' ? 'is-active' : ''}>
-              <a onClick={this.tabSelect.bind(this,'all')}>All</a></li>
+              <a onClick={this.tabSelect.bind(this,'all')} role="presentation">All</a></li>
           </ul>
         </div>
         <div >
