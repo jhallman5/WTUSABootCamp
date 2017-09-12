@@ -7,11 +7,13 @@ import { Provider } from 'react-redux';
 import Home from './containers/Home';
 import DashBoard from './containers/DashBoard';
 import store from './store';
+import Nav from './components/nav';
+
 
 const App = () => (
   <BrowserRouter >
     <div>
-      Project Level Up
+      <Nav />
       <Route exact path="/" component={Home} />
       <Route path="/dashboard" component={DashBoard} />
     </div>

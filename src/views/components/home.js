@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Home = () => (
   <div>
-    <Link to={'/dashboard'}>Dashboard</Link>
     <section className="hero" >
       <img src={"/images/splash.jpg"}  style={{ width:"100vw", height:"100vh"}}  />
-  </section>
+    </section>
   </div>
 );
 
