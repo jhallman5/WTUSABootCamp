@@ -50,7 +50,7 @@ class DashBoardContainer extends React.Component {
             Total: {this.props.customers.length}
           </div>
         </div>
-        <div className="tabs is-offset-1">
+        <div className="tabs is-boxed is-offset-1">
           <ul>
             <li className={this.state.tab === 'open' ? 'is-active' : ''}>
               <a onClick={this.tabSelect.bind(this,'open')} role="presentation">Open</a></li>
