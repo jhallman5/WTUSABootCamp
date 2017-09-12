@@ -1,4 +1,3 @@
-/* eslint-env mocha */
 const { expect } = require('chai');
 const Customer = require('../../src/models/customers');
 

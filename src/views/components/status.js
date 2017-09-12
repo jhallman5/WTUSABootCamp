@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Status = () => ( // eslint-disable-line
+const Status = () => (
   <div>
     <div className="button">
       <span className="icon is-small">
@@ -16,3 +16,5 @@ export const Status = () => ( // eslint-disable-line
     </div>
   </div>
 );
+
+export default Status;

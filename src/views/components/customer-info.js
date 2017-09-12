@@ -1,8 +1,5 @@
-/* eslint-disable */
-
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Status } from './status';
+import Status from './status';
 
 const CustomerInfo = props => (
   <div>
