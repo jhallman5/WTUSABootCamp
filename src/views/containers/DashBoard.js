@@ -5,6 +5,7 @@ import { Customers } from '../actions';
 import store from '../store';
 import CustomerInfo from '../components/customer-info';
 import CustomerHeader from '../components/customer-header';
+import AmountOfCustomers from '../components/amount-of-customers';
 
 const mapStateToProps = state => {
   return {customers: state.customers.customers}
@@ -37,13 +38,13 @@ class DashBoardContainer extends React.Component {
       <div>
         <div className="columns is-offset-1">
           <div className="column">
-            Leads: {Object.values(this.props.customers).filter(customer => customer.status === 'open').length}
+            Leads: <AmountOfCustomers customers={this.props.customers} status='open'/>
           </div>
           <div className="column">
-            Rejected: {Object.values(this.props.customers).filter(customer => customer.status === 'rejected').length}
+            Rejected: <AmountOfCustomers customers={this.props.customers} status='rejected'/>
           </div>
           <div className="column">
-            Joined: {Object.values(this.props.customers).filter(customer => customer.status === 'joined').length}
+            Joined: <AmountOfCustomers customers={this.props.customers} status='joined'/>
           </div>
           <div className="column">
             Total: {this.props.customers.length}
