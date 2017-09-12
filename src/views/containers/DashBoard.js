@@ -1,8 +1,7 @@
 /* eslint-disable */
-import React, { Component } from 'react'; //eslint-disable-line
+import React from 'react';
 import { connect } from 'react-redux';
 import { Customers } from '../actions';
-import store from '../store';
 import CustomerInfo from '../components/customer-info';
 import CustomerHeader from '../components/customer-header';
 import AmountOfCustomers from '../components/amount-of-customers';
@@ -19,10 +18,11 @@ const mapDispatchToProps = dispatch => {
 
 class DashBoardContainer extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       tab: 'open',
     };
+    this.tabSelect.bind(this);
   }
 
   componentWillMount() {
@@ -38,13 +38,13 @@ class DashBoardContainer extends React.Component {
       <div>
         <div className="columns is-offset-1">
           <div className="column">
-            Leads: <AmountOfCustomers customers={this.props.customers} status='open'/>
+            Leads: <AmountOfCustomers customers={this.props.customers} status="open" />
           </div>
           <div className="column">
-            Rejected: <AmountOfCustomers customers={this.props.customers} status='rejected'/>
+            Rejected: <AmountOfCustomers customers={this.props.customers} status="rejected" />
           </div>
           <div className="column">
-            Joined: <AmountOfCustomers customers={this.props.customers} status='joined'/>
+            Joined: <AmountOfCustomers customers={this.props.customers} status="joined" />
           </div>
           <div className="column">
             Total: {this.props.customers.length}
@@ -52,24 +52,24 @@ class DashBoardContainer extends React.Component {
         </div>
         <div className="tabs is-offset-1">
           <ul>
-            <li className={this.state.tab === 'open' ? "is-active" : ""}>
+            <li className={this.state.tab === 'open' ? 'is-active' : ''}>
               <a onClick={this.tabSelect.bind(this,'open')}>Open</a></li>
-            <li className={this.state.tab === 'joined' ? "is-active": ""}>
+            <li className={this.state.tab === 'joined' ? 'is-active' : ''}>
               <a onClick={this.tabSelect.bind(this,'joined')}>Joined</a></li>
-            <li className={this.state.tab === 'rejected' ? "is-active": ""}>
-              <a onClick={this.tabSelect.bind(this,'rejected')}>Rejected</a></li>
-            <li className={this.state.tab === 'all' ? "is-active": ""}>
+            <li className={this.state.tab === 'rejected' ? 'is-active' : ''}>
+              <a onClick={this.tabSelect.bind(this,'rejected')} role="presentation" >Rejected</a></li>
+            <li className={this.state.tab === 'all' ? 'is-active' : ''}>
               <a onClick={this.tabSelect.bind(this,'all')}>All</a></li>
           </ul>
         </div>
-         <div >
+        <div >
           <CustomerHeader />
           {this.props.customers.length
-            ? this.props.customers.map(person => {
-                if(this.state.tab === person.status || this.state.tab === 'all') {
-                  return <CustomerInfo customer={person} key={person.id}/>
-                }
-              })
+            ? this.props.customers.map((person) => { //eslint-disable-line
+              if (this.state.tab === person.status || this.state.tab === 'all') {
+                return <CustomerInfo customer={person} key={person.id} />;
+              }
+            })
             : 'Loading...'
           }
         </div>
@@ -78,4 +78,4 @@ class DashBoardContainer extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DashBoardContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(DashBoardContainer);
