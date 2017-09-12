@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import HomeContainer from './containers/home';
+import Home from './containers/Home';
 import DashBoard from './containers/DashBoard';
 import store from './store';
 
@@ -12,7 +12,7 @@ const App = () => (
   <BrowserRouter >
     <div>
       Project Level Up
-      <Route exact path="/" component={HomeContainer} />
+      <Route exact path="/" component={Home} />
       <Route path="/dashboard" component={DashBoard} />
     </div>
   </BrowserRouter>
