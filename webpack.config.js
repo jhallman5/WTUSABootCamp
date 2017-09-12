@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const WebpackNotifierPlugin = require('webpack-notifier');
 
 module.exports = () => ({
@@ -33,5 +34,6 @@ module.exports = () => ({
   },
   plugins: [
     new WebpackNotifierPlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
   ],
 });

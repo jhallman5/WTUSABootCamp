@@ -7,18 +7,16 @@
     "node": "6.9.2"
   },
   "scripts": {
+    "start": "webpack && node ./src/server.js",
     "test": "nyc mocha ./test/**/*-test.js",
-    "build": "webpack",
-    "build:dev": "webpack-dev-server --hot --history-api-fallback",
+    "build": "webpack --watch",
     "lint": "./node_modules/.bin/eslint *.js",
-    "server:dev": "webpack && nodemon ./src/server.js",
-    "dev": "npm run build:dev && npm run server:dev",
+    "server:dev": "nodemon ./src/server.js",
     "create:db": "createdb WTUSABootCamp",
     "drop:db": "dropdb WTUSABootCamp",
     "migrate:db": "knex --knexfile ./src/models/db/knexfile.js migrate:latest",
     "rollback:db": "knex --knexfile ./src/models/db/knexfile.js migrate:rollback",
-    "seed:db": "knex --knexfile ./src/models/db/knexfile.js seed:run",
-    "start": "webpack && node ./src/server.js"
+    "seed:db": "knex --knexfile ./src/models/db/knexfile.js seed:run"
   },
   "repository": {
     "type": "git",
@@ -64,7 +62,6 @@
     "redux-promise-middleware": "^4.4.1",
     "style-loader": "^0.18.2",
     "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.7.1",
     "webpack-notifier": "^1.5.0"
   },
   "devDependencies": {
