@@ -1,6 +1,7 @@
 # World Team USA Bootcamp Management
 ## Work in progress
 Deployed at http://worldteamusa.herokuapp.com/
+
 Currently focusing on ``` /dashboard ```.
 
 ## Purpose
