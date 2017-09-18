@@ -38,14 +38,23 @@ class DashBoardContainer extends React.Component {
       <div>
         <div className="columns is-offset-1">
           <div className="column">
-            Leads: <AmountOfCustomers customers={this.props.customers} status="open" />
+            <div className="columns">
+              <div className="column is-narrow">Leads:</div>
+              <AmountOfCustomers customers={this.props.customers} status="open" />
+            </div>
           </div>
           <div className="column">
-            Rejected: <AmountOfCustomers customers={this.props.customers} status="rejected" />
+            <div className="columns">
+              <div className="column is-narrow">Rejected:</div>
+              <AmountOfCustomers customers={this.props.customers} status="rejected" />
+            </div>
           </div>
           <div className="column">
-            Joined: <AmountOfCustomers customers={this.props.customers} status="joined" />
-          </div>
+            <div className="columns">
+              <div className="column is-narrow">Joined:</div>
+              <AmountOfCustomers customers={this.props.customers} status="joined" />
+            </div>
+        </div>
           <div className="column">
             Total: {this.props.customers.length}
           </div>
