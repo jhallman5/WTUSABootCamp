@@ -1,11 +1,12 @@
 # World Team USA Bootcamp Management
 ## Work in progress
- Currently only focusing on ``` /dashboard ```. 
+Deployed at http://worldteamusa.herokuapp.com/
+Currently focusing on ``` /dashboard ```.
 
-## Purpose 
+## Purpose
 Build a responsive front-end using react and redux
 
-Build a back-end using express and the ORM bookshelf 
+Build a back-end using express and the ORM bookshelf
 
 
 1. To create database ```$ npm run create:db```
@@ -16,6 +17,6 @@ Build a back-end using express and the ORM bookshelf
 
 1. To run express server ```$ npm run server:dev```
 
+
 TODO
-1. ADD TESTS
 1. Deal with css breakpoints
