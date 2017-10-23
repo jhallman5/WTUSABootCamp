@@ -14,7 +14,7 @@ Build a back-end using express and the ORM bookshelf
 
 1. To drop database ```$ npm run drop:db```
 
-1. To run webpack-dev-server ``` $ npm run dev```
+1. To run webpack-dev-server ``` $ npm run build```
 
 1. To run express server ```$ npm run server:dev```
 
